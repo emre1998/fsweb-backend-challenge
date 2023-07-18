@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const likeModel = require("./likes-model");
 const { limited } = require("../auth/auth-middleware");
-const errorHandler = require("./likes-middleware");
 
 // GET /likes/:postId
 router.get("/:postId", limited, async (req, res, next) => {
@@ -71,7 +70,5 @@ router.delete("/comments/:commentId", limited, async (req, res, next) => {
   }
 });
 
-// Middleware'i ekle
-router.use(errorHandler);
 
 module.exports = router;

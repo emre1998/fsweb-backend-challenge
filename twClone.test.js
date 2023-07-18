@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-const db = require("../data/db-config");
+const db = require("./data/db-config");
 const request = require("supertest");
-const server = require("../api/server");
+const server = require("./api/server");
 
 afterAll(async () => {
   await db.destroy();
@@ -15,9 +15,9 @@ beforeEach(async () => {
 describe("POST /register ve /login", () => {
   test("[1] yeni kullanıcı oluşuyor mu", async () => {
     const userData = {
-      username: "maci rinda",
+      username: "ibrahimfevzi",
       password: "1234",
-      email: "macirinda@starwars.com",
+      email: "ibrahim@example.com",
     };
 
     let actual = await request(server)
@@ -26,8 +26,8 @@ describe("POST /register ve /login", () => {
 
     // İsteğin döndürdüğü yanıtın kontrolü
     expect(actual.status).toBe(201);
-    expect(actual.body[0]).toHaveProperty("username", "maci rinda");
-    expect(actual.body[0]).toHaveProperty("email", "macirinda@starwars.com");
+    expect(actual.body[0]).toHaveProperty("username", "ibrahimfevzi");
+    expect(actual.body[0]).toHaveProperty("email", "ibrahim@example.com");
   });
 
   test("[2] post methodunda olmayan alan hata döndürüyor mu", async () => {
@@ -59,11 +59,11 @@ describe("POST /register ve /login", () => {
 });
 
 describe("Post testleri", () => {
-  test("[4] Başarılı login oldu.", async () => {
+  test("[5] Başarılı login oldu.", async () => {
     //act
     var loginPayload = {
-      username: "maci rinda",
-      email: "macirinda@starwars.com",
+      username: "ibrahim",
+      email: "ibrahim@example.com",
       password: "1234",
     };
     let actual = await request(server)
@@ -72,22 +72,22 @@ describe("Post testleri", () => {
     expect(actual.status).toBe(200);
     /// Act
     const response = await request(server)
-      .get("/api/users")
+      .get("/api/users/")
       .set("authorization", actual.body.token);
 
     // Assert
     expect(response.status).toBe(200);
     expect(response.body.length).toBeGreaterThan(0);
   });
-  test("[5] yeni tweet oluşuyor mu", async () => {
+  test("[6] yeni tweet oluşuyor mu", async () => {
     const tweet = {
       content: "test",
     };
 
     // Login to get the authorization token
     const loginPayload = {
-      username: "maci rinda",
-      email: "macirinda@starwars.com",
+      username: "ibrahim",
+      email: "ibrahim@example.com",
       password: "1234",
     };
     const loginResponse = await request(server)
@@ -105,7 +105,7 @@ describe("Post testleri", () => {
     expect(response.status).toBe(201);
   });
 
-  test("[6] yeni comment oluşuyor mu", async () => {
+  test("[7] yeni comment oluşuyor mu", async () => {
     const comment = {
       content: "test",
       post_id: "1",
@@ -113,8 +113,8 @@ describe("Post testleri", () => {
 
     // Login to get the authorization token
     const loginPayload = {
-      username: "maci rinda",
-      email: "macirinda@starwars.com",
+      username: "ibrahim",
+      email: "ibrahim@example.com",
       password: "1234",
     };
     const loginResponse = await request(server)
@@ -135,11 +135,11 @@ describe("Post testleri", () => {
 
 //DELETE TESTLERİ
 describe("Delete testleri", () => {
-  test("[7] tweet siliniyor mu", async () => {
+  test("[8] tweet siliniyor mu", async () => {
     // Login to get the authorization token
     const loginPayload = {
-      username: "maci rinda",
-      email: "macirinda@starwars.com",
+      username: "ibrahim",
+      email: "ibrahim@example.com",
       password: "1234",
     };
 
@@ -167,11 +167,11 @@ describe("Delete testleri", () => {
     expect(deleteResponse.status).toBe(200);
   });
 
-  test("[8] comment siliniyor mu", async () => {
+  test("[9] comment siliniyor mu", async () => {
     // Login to get the authorization token
     const loginPayload = {
-      username: "maci rinda",
-      email: "macirinda@starwars.com",
+      username: "ibrahim",
+      email: "ibrahim@example.com",
       password: "1234",
     };
 
@@ -203,11 +203,11 @@ describe("Delete testleri", () => {
 
 //PUT TESTLERİ
 describe("Put testleri", () => {
-  test("[9] tweet güncelleniyor mu", async () => {
+  test("[10] tweet güncelleniyor mu", async () => {
     // Login to get the authorization token
     const loginPayload = {
-      username: "maci rinda",
-      email: "macirinda@starwars.com",
+      username: "ibrahim",
+      email: "ibrahim@example.com",
       password: "1234",
     };
 
@@ -236,11 +236,11 @@ describe("Put testleri", () => {
     expect(updateResponse.status).toBe(200);
   });
 
-  test("[10] comment güncelleniyor mu", async () => {
+  test("[11] comment güncelleniyor mu", async () => {
     // Login to get the authorization token
     const loginPayload = {
-      username: "maci rinda",
-      email: "macirinda@starwars.com",
+      username: "ibrahim",
+      email: "ibrahim@example.com",
       password: "1234",
     };
 

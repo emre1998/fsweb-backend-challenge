@@ -9,19 +9,19 @@
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
     "resetdb": "npm run rollback && npm run migrate && npm run seed",
-    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent"
+    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent --detectOpenHandles"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ibrahimfevzi/fsweb-backend-challenge.git"
+    "url": "git+https://github.com/emre1998/fsweb-backend-challenge.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ibrahimfevzi/fsweb-backend-challenge/issues"
+    "url": "https://github.com/emre1998/fsweb-backend-challenge/issues"
   },
-  "homepage": "https://github.com/ibrahimfevzi/fsweb-backend-challenge#readme",
+  "homepage": "https://github.com/emre1998/fsweb-backend-challenge#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
