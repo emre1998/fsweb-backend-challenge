@@ -6,27 +6,41 @@
 
 - [ ] POST `/api/auth/register` - Kullanıcı kaydı oluşturur.
 - [ ] POST `/api/auth/login` - Kullanıcı girişi yapar ve bir token döndürür.
-
-### Tweets
-
-- [ ] GET `/api/tweets` - Tüm tweetleri döndürür.
-- [ ] POST `/api/tweets` - Tweet oluşturur.
-- [ ] GET `/api/tweets/:id` - Tweet id'si ile eşleşen tweeti döndürür.
-- [ ] DELETE `/api/tweets/:id` - Tweet id'si ile eşleşen tweeti siler.
-- [ ] GET `/api/tweets/:id/likes` - Tweet id'si ile eşleşen tweetin beğenilerini döndürür.
-- [ ] POST `/api/tweets/:id/likes` - Tweet id'si ile eşleşen tweeti beğenir, eğer daha önce beğenmişse geri alır.
-- [ ] GET `/api/tweets/:id/mentions` - Tweet id'si ile eşleşen tweetin cevaplarını döndürür.
-- [ ] POST `/api/tweets/:id/mentions` - Tweet id'si ile eşleşen tweete cevap oluşturur.
-- [ ] GET `/api/tweets/:id/mentions/:mention_id` - Tweet id'si ile eşleşen tweetin cevap id'si ile eşleşen cevabını döndürür.
-- [ ] DELETE `/api/tweets/:id/mentions/:mention_id` - Tweet id'si ile eşleşen tweetin cevap id'si ile eşleşen cevabını siler.
+- [ ] GET   `/api/auth/logout ` -Kullanıcı çıkış yapar ve ve mesaj döndürülür.
 
 ### Users
 
 - [ ] GET `/api/users` - Tüm kullanıcıları döndürür.
-- [ ] GET `/api/users/:id` - Kullanıcı id'si ile eşleşen kullanıcıyı döndürür.
-- [ ] GET `/api/users/:id/tweets` - Kullanıcı id'si ile eşleşen kullanıcının tweetlerini döndürür.
-- [ ] GET `/api/users/:id/likes` - Kullanıcı id'si ile eşleşen kullanıcının beğendiklerini döndürür.
-- [ ] GET `/api/users/:id/mentions` - Kullanıcı id'si ile eşleşen kullanıcının cevaplarını döndürür.
+- [ ] GET `/api/users/:id` - id'li kullanıcıyı döndürür.
+- [ ] DELETE `/api/users/:id` - id'li kullanıcı kaydı silinir.
+- [ ] PUT `/api/users/:id` - id'li kullanıcı bilgilerini günceller.
+
+### POSTS
+
+- [ ] GET `/api/posts` - Tüm tweetleri döndürür.
+- [ ] GET `/api/posts/:id` - id'li tweet bilgilerini döner.
+- [ ] POST `/api/posts/` - Yeni tweet oluşturur.
+- [ ] PUT `/api/posts/:id` - id'li tweet bilgilerini günceller.
+- [ ] DELETE `/api/posts/:id` - id'li tweet bilgilerini siler.
+
+### POSTS-COMMENTS
+- [ ] GET `/api/posts-comments/` - Postlara atılan yorumları döner.
+- [ ] GET `/api/posts-comments/:postId ` -id'li tweete ait yorumları döner.
+
+### COMMENTS
+- [ ] GET `/api/comments/` -Yorumları döner.
+- [ ] GET `/api/comments/:id` -id'li yorum bilgilerini döner.
+- [ ] GET `/api/comments/posts/:postId` -id'li posta ait yorum bilgilerini döner.
+- [ ] POST `/api/comments/` -Yorum oluşturur.
+- [ ] PUT `/api/comments/:id` -id'li yorum bilgisini günceller.
+- [ ] DELETE `/api/comments/:id` -id'li yorumu siler.
+
+### LIKES
+- [ ] GET `/api/likes/:postId` -ilgili id'ye sahip postun beğeni bilgisini döner.
+- [ ] GET `/api/likes/comments/:commentsId` -ilgili yoruma ait beğeni bilgisini döner.
+- [ ] POST `/api/likes/` -Beğeni oluşturur.
+- [ ] DELETE `/api/likes/:postId` -ilgili id'ye sahip postun beğeni bilgilerini siler.
+- [ ] DELETE `/api/likes/comments/:commentId` -id'li yoruma ait beğeni bilgisini siler.
 
 ## Proje Açıklaması
 
